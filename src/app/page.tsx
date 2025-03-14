@@ -1,5 +1,6 @@
-import Button from "./components/Button"
+// import Button from "./components/Button"
 import Image from 'next/image'
+import Link from "next/link";
 // import styles from './main.module.scss'
 // import styles from "../styles/main.scss";
 // import { classLister } from "../lib/utils";
@@ -8,6 +9,9 @@ import Image from 'next/image'
 export default function Home() {
   return (
     <div>
+      <div className="col-6 form-widget">
+        <Link href="/login">Auth page</Link>
+      </div>
       <Image
         src="/bolt.gif"
         width={800}
