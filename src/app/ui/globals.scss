@@ -1,0 +1,63 @@
+@use "tailwindcss";
+
+
+:root {
+    --background: #ffffff;
+    --foreground: #171717;
+    --white: #ecf0f2;
+    --blueish-white: #8ac2fa;
+    --scarlet: #ff2400;
+    --gold: #ffd700;
+    --gray: #dee4f0;
+    --green: #14a47e;
+    --purple: #78378c;
+    --blue: #3c91e7;
+    --light-gold: #ebe3c0;
+    --shadow: 0 30px 40px 0 rgba(16, 36, 94, 0.2);
+    --rounded-corners: 4px;
+    --rounded-corners-large: 8px;
+    --snow-effect: linear-gradient(#123, #111);
+
+
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+      --background: #0a0a0a;
+      --foreground: #ededed;
+    }
+}
+
+html,
+body {
+    min-height: 100vh;
+    color: var(--blue);
+    background: var(--light-gold);
+    margin: 0;
+    position: relative;
+    font-family:
+        Montserrat,
+        Segoe UI,
+        Tahoma,
+        sans-serif;
+}
+
+// div {
+//     border: #0a0a0a;
+//     border-width: 20px;
+//     border-style: dashed;
+// }
+
+// a {
+//     background-color: #aa1414;
+//     border-width: 5px;
+//     color: inherit;
+//     text-decoration: none;
+// }
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
