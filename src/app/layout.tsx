@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { inter, geistSans, geistMono, lusitana } from '@/app/ui/fonts'
-import "@/app/ui/globals.scss";
+import "./ui/globals.scss";
 
 
 export const metadata: Metadata = {

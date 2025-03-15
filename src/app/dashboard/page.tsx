@@ -1,8 +1,8 @@
-import { createClient } from '@/utils/supabase/server';
+import { createClient } from '@/app/utils/supabase/server';
 
-export default async function Users() {
+export default async function Dashboard() {
   const supabase = await createClient();
-  const { data: users } = await supabase.from("users").select();
+  const { data: user } = await supabase.auth.getUser();
 
-  return <pre>{JSON.stringify(users, null, 2)}</pre>
+  return <pre>{JSON.stringify(user, null, 2)}</pre>
 }
