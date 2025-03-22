@@ -7,11 +7,11 @@ export default function AcmeLogo() {
       className={`${lusitana.className} flex flex-row items-center leading-none text-white`}
     >
       <Image
-        src="/sluts.JPG"
+        src="/baddies.JPG"
         width={100}
         height={100}
         className="flex hidden md:block "
-        alt="Sluts" />
+        alt="Baddies" />
     </div>
   );
 }
