@@ -3,6 +3,7 @@ import { type NextRequest } from 'next/server'
 import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 
+// Don't need this but it has a n example with verificaton of email which needs SMTP implemented
 // Creating a handler to a GET request to route /auth/confirm
 export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url)
