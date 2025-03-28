@@ -1,0 +1,16 @@
+# Python virtual environments
+venv/
+env/
+ENV/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# # Modal specific files
+# .modal/token.json    # Contains user authentication token
+# .modal/remote-outputs/  # Output logs from remote runs
+
+# Environment variables
+.env

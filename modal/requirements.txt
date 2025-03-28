@@ -1,0 +1,3 @@
+modal>=0.73.121
+python-dotenv>=1.0.0
+# Add other dependencies your LLM endpoint needs
