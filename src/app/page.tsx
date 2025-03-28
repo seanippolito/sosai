@@ -1,22 +1,8 @@
-import Image from 'next/image'
-import Link from 'next/link'
-
 
 export default function Home() {
   return (
-    <>
-      <main className="flex-1 flex flex-col gap-6 px-4">
-        <div>
-          <Link href="/dashboard">
-            <Image
-              src="/bolt.gif"
-              width={600}
-              height={400}
-              className="flex hidden md:block"
-              alt="Boltsy Bear" />
-          </Link>
-        </div>
-      </main>
-    </>
+    <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center p-8">
+      future Landing page
+    </div>
   );
 }
