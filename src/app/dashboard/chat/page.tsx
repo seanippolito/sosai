@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useChat } from '@ai-sdk/react';
-import { useRef, useState } from 'react';
-import Image from 'next/image';
+import { useChat } from "@ai-sdk/react";
+import { useRef, useState } from "react";
+import Image from "next/image";
 
 export default function Chat() {
   const { messages, input, handleInputChange, handleSubmit } = useChat();
@@ -11,20 +11,20 @@ export default function Chat() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   return (
-    <div className="flex flex-col w-full max-w-md py-24 mx-auto stretch">
-      {messages.map(m => (
+    <div className="stretch mx-auto flex w-full max-w-md flex-col py-24">
+      {messages.map((m) => (
         <div key={m.id} className="whitespace-pre-wrap">
-          {m.role === 'user' ? 'User: ' : 'AI: '}
+          {m.role === "user" ? "User: " : "AI: "}
           {m.content}
           <div>
             {m?.experimental_attachments
               ?.filter(
-                attachment =>
-                  attachment?.contentType?.startsWith('image/') ||
-                  attachment?.contentType?.startsWith('application/pdf'),
+                (attachment) =>
+                  attachment?.contentType?.startsWith("image/") ||
+                  attachment?.contentType?.startsWith("application/pdf"),
               )
               .map((attachment, index) =>
-                attachment.contentType?.startsWith('image/') ? (
+                attachment.contentType?.startsWith("image/") ? (
                   <Image
                     key={`${m.id}-${index}`}
                     src={attachment.url}
@@ -32,7 +32,7 @@ export default function Chat() {
                     height={500}
                     alt={attachment.name ?? `attachment-${index}`}
                   />
-                ) : attachment.contentType?.startsWith('application/pdf') ? (
+                ) : attachment.contentType?.startsWith("application/pdf") ? (
                   <iframe
                     key={`${m.id}-${index}`}
                     src={attachment.url}
@@ -47,8 +47,8 @@ export default function Chat() {
       ))}
 
       <form
-        className="fixed bottom-0 w-full max-w-md p-2 mb-8 border border-gray-300 rounded shadow-xl space-y-2"
-        onSubmit={event => {
+        className="fixed bottom-0 mb-8 w-full max-w-md space-y-2 rounded border border-gray-300 p-2 shadow-xl"
+        onSubmit={(event) => {
           handleSubmit(event, {
             experimental_attachments: files,
           });
@@ -56,14 +56,14 @@ export default function Chat() {
           setFiles(undefined);
 
           if (fileInputRef.current) {
-            fileInputRef.current.value = '';
+            fileInputRef.current.value = "";
           }
         }}
       >
         <input
           type="file"
           className=""
-          onChange={event => {
+          onChange={(event) => {
             if (event.target.files) {
               setFiles(event.target.files);
             }
