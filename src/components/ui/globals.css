@@ -1,6 +1,4 @@
-
-
-@import "tailwindcss";  /* prefix(tw); uncomment this line if you want to add a prefix to all CSS classes*/
+@import "tailwindcss"; /* prefix(tw); uncomment this line if you want to add a prefix to all CSS classes*/
 @plugin "tailwindcss-animate";
 @plugin "@tailwindcss/typography";
 
@@ -9,7 +7,7 @@
   --breakpoint-sm: 480px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 976px;
-  --color-twitter-blue: #1DA1F2;
+  --color-twitter-blue: #1da1f2;
   --color-orange-500: #986508;
 }
 
@@ -70,11 +68,26 @@
   }
 }
 
-@layer base {
+/* add the code bellow */
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+/* @layer base {
   * {
     @reference border-border;
   }
+  html,
   body {
     @reference bg-background text-foreground;
+    @apply no-scrollbar;
   }
-}
+} */

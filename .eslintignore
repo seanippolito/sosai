@@ -1,0 +1,13 @@
+.next
+next-env.d.ts
+node_modules
+package-lock.json
+public
+*.config.js
+supabase
+.vscode
+.husky
+.qodo
+compose.yml
+.env*
+components.json

@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
-import Link from "next/link";
-import { inter, geistSans, geistMono, lusitana } from '@/components/ui/fonts'
+import { inter, geistSans, geistMono, lusitana } from "@/components/ui/fonts";
 import HeaderAuth from "@/components/header-auth";
 import { ThemeSwitcher } from "@/components/theme-switcher";
 import "@/components/ui/globals.css";
+import Header from "@/components/header";
 
 export const metadata: Metadata = {
   title: "SoSAI",
@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${lusitana.className} ${inter.className} ${geistSans.variable} ${geistMono.variable} antialiased bg-background text-primary-100 text-p1`}
+        className={`${lusitana.className} ${inter.className} ${geistSans.variable} ${geistMono.variable} bg-background text-primary-100 text-p1 antialiased`}
       >
         <ThemeProvider
           attribute="class"
@@ -27,24 +27,16 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-            <header className="relative flex top-0 left-0 border-b-1 border-b-gray-800 h-16 z-1">
-              <nav className="w-full fixed">
-                <div className="w-full flex justify-between items-center p-2 text-lg">
-                  <div className="flex gap-5 items-center font-semibold  text-foreground">
-                    <Link href={"/"}>
-                      <div className="text-4xl text-blue-500">SȯSAi</div>
-                    </Link>
-                  </div>
-                  <HeaderAuth />
-                </div>
-              </nav>
-            </header>
-            <div className="relative flex-1 w-full flex flex-col gap-20 items-center border-10 border-red-800 ">
-              <div className="flex flex-col gap-20 max-w-5xl p-5">
+          <main className="overflow-auto">
+            <Header>
+              <HeaderAuth />
+            </Header>
+            <div className="relative flex w-full flex-1 flex-col items-center gap-20 border-10 border-red-800">
+              <div className="flex max-w-5xl flex-col gap-20 p-5">
                 {children}
               </div>
             </div>
-            <footer className="relative w-full flex items-center justify-center border-t mx-auto text-center text-xs gap-8 py-16 border-10 border-green-800">
+            <footer className="relative mx-auto flex w-full items-center justify-center gap-8 border-10 border-t border-green-800 py-16 text-center text-xs">
               <p>
                 Powered by{" "}
                 <a
@@ -58,6 +50,7 @@ export default function RootLayout({
               </p>
               <ThemeSwitcher />
             </footer>
+          </main>
         </ThemeProvider>
       </body>
     </html>

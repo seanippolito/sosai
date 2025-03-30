@@ -1,6 +1,6 @@
 import { signOutAction } from "@/app/actions";
 import Link from "next/link";
-import Image from 'next/image'
+import Image from "next/image";
 import { Button } from "./ui/button";
 import { createClient } from "@/utils/supabase/server";
 import {
@@ -17,35 +17,34 @@ export default async function AuthButton() {
     data: { user },
   } = await supabase.auth.getUser();
 
-
   return user ? (
     <div className="flex items-center gap-4 border-4 border-green-800">
-      <div className="flex gap-5 items-center font-semibold outline">
+      <div className="flex items-center gap-5 font-semibold outline">
         <Link href={"/dashboard"}>Dashboard</Link>
       </div>
       <div className="hidden md:block">{user.email}</div>
       <DropdownMenu>
         <DropdownMenuTrigger asChild className="border-4 border-amber-600">
-            <Image 
-              src="/bolt_1.JPG" 
-              className="mx-1 size-10 rounded-full" 
-              width={20}
-              height={20}
-              alt="Boltsy Bear"/>
+          <Image
+            src="/bolt_1.JPG"
+            className="mx-1 size-10 rounded-full"
+            width={20}
+            height={20}
+            alt="Boltsy Bear"
+          />
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-content justify-items-start" align="end">
+        <DropdownMenuContent
+          className="w-content justify-items-start"
+          align="end"
+        >
           <DropdownMenuItem>
             <Link href={"/account"}>
-              <Button type="button">
-                Account
-              </Button>
+              <Button type="button">Account</Button>
             </Link>
           </DropdownMenuItem>
           <DropdownMenuItem>
             <form action={signOutAction}>
-              <Button type="submit">
-                Sign out
-              </Button>
+              <Button type="submit">Sign out</Button>
             </form>
           </DropdownMenuItem>
         </DropdownMenuContent>

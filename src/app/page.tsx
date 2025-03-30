@@ -1,7 +1,6 @@
-
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center p-8">
+    <div className="flex min-h-screen flex-col items-center bg-gray-900 p-8 text-white">
       future Landing page
     </div>
   );

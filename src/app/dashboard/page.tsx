@@ -1,4 +1,4 @@
-import { createClient } from '@/utils/supabase/server';
+import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 
 export default async function Dashboard() {
@@ -12,5 +12,5 @@ export default async function Dashboard() {
     return redirect("/sign-in");
   }
 
-  return <pre>{JSON.stringify(user, null, 2)}</pre>
+  return <pre>{JSON.stringify(user, null, 2)}</pre>;
 }
