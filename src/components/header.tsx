@@ -1,7 +1,6 @@
 "use client";
 import type { Metadata } from "next";
 import Link from "next/link";
-import "@/components/ui/globals.css";
 
 export const metadata: Metadata = {
   title: "SoSAI",

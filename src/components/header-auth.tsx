@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export default async function AuthButton() {
-  const supabase = await createClient();
+  const supabase = await createClient<Database>();
 
   const {
     data: { user },

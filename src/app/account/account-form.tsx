@@ -1,25 +1,39 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
 import { createClient } from "@/utils/supabase/client";
-import { type User } from "@supabase/supabase-js";
 import Avatar from "./avatar";
 
-export default function AccountForm({ user }: { user: User | null }) {
-  const supabase = createClient();
+export default function AccountForm({
+  user,
+  profile,
+}: {
+  user: User | null;
+  profile: Profiles | null;
+}) {
+  const supabase = createClient<Database>();
   const [loading, setLoading] = useState(true);
-  const [fullname, setFullname] = useState<string | null>(null);
-  const [username, setUsername] = useState<string | null>(null);
-  const [website, setWebsite] = useState<string | null>(null);
+  const [email, setEmail] = useState<string | null>(profile?.email ?? null);
+  const [fullname, setFullname] = useState<string | null>(
+    profile?.full_name ?? null,
+  );
+  const [username, setUsername] = useState<string | null>(profile);
+  const [website, setWebsite] = useState<string | null>(
+    profile?.website ?? null,
+  );
   const [avatar_url, setAvatarUrl] = useState<string | null>(null);
 
   const getProfile = useCallback(async () => {
     try {
       setLoading(true);
 
-      const { data, error, status } = await supabase
+      const {
+        data: profiles,
+        error,
+        status,
+      } = await supabase
         .from("profiles")
-        .select(`full_name, username, website, avatar_url`)
-        .eq("id", user?.id)
+        .select(`email, full_name, username, website, avatar_url`)
+        .eq("id", user?.id ?? "")
         .single();
 
       if (error && status !== 406) {
@@ -27,11 +41,12 @@ export default function AccountForm({ user }: { user: User | null }) {
         throw error;
       }
 
-      if (data) {
-        setFullname(data.full_name);
-        setUsername(data.username);
-        setWebsite(data.website);
-        setAvatarUrl(data.avatar_url);
+      if (profiles) {
+        setEmail(profiles.email);
+        setFullname(profiles.full_name);
+        setUsername(profiles.username);
+        setWebsite(profiles.website);
+        setAvatarUrl(profiles.avatar_url);
       }
     } catch (error) {
       alert(`Error loading user data! ${error}`);
@@ -87,7 +102,7 @@ export default function AccountForm({ user }: { user: User | null }) {
       />
       <div>
         <label htmlFor="email">Email</label>
-        <input id="email" type="text" value={user?.email} disabled />
+        <input id="email" type="text" value={email || ""} disabled />
       </div>
       <div>
         <label htmlFor="fullName">Full Name</label>

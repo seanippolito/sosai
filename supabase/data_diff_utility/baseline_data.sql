@@ -1,0 +1,2 @@
+\connect supabase_sosai;
+
