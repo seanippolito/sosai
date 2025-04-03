@@ -7,7 +7,7 @@ import { DataStreamHandler } from "@/components/data-stream-handler";
 import { createClient } from "@/utils/supabase/client";
 import { redirect } from "next/navigation";
 
-export default async function Page() {
+export default async function Page() { 
   console.log(`This is in the chat [page] }`);
 
   const supabase = await createClient<Database>();
@@ -21,17 +21,17 @@ export default async function Page() {
     return redirect("/sign-in");
   }
 
+
   const id = generateUUID();
   console.log(`This is in the chat [page] ${id}`);
 
   const cookieStore = await cookies();
-  const modelIdFromCookie = cookieStore.get("chat-model");
+  const modelIdFromCookie = cookieStore.get('chat-model');
 
   if (!modelIdFromCookie) {
     // No chat found, create a new one
     return (
       <>
-        <p className="bg-green-500">what a bitch</p>
         <Chat
           key={id}
           id={id}
@@ -47,7 +47,6 @@ export default async function Page() {
 
   return (
     <>
-      <p>what a bitch</p>
       <Chat
         key={id}
         id={id}

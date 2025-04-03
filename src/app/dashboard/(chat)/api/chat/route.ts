@@ -31,7 +31,7 @@ export const maxDuration = 60;
 export async function POST(request: Request) {
   try {
     const supabase = await createClient<Database>();
-    console.log(supabase);
+    console.log("This is the chat post, is this the failure?");
 
     const {
       data: { user },

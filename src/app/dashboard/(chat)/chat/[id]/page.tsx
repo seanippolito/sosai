@@ -66,13 +66,13 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
   return (
     <>
       <Chat
-        id={chat.id}
+        id={id}
         initialMessages={convertToUIMessages(messagesFromDb)}
         selectedChatModel={DEFAULT_CHAT_MODEL}
         selectedVisibilityType={chat.visibility}
         isReadonly={user?.id !== chat.userId}
       />
-      <DataStreamHandler id={chat.id} />
+      <DataStreamHandler id={id} />
     </>
   );
   // }
