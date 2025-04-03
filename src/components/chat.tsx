@@ -88,7 +88,7 @@ export function Chat({
         />
 
         <form className="bg-background mx-auto flex w-full gap-2 bg-amber-300 px-4 pb-4 md:max-w-3xl md:pb-6">
-          { (
+          {
             <MultimodalInput
               chatId={id}
               input={input}
@@ -102,7 +102,7 @@ export function Chat({
               setMessages={setMessages}
               append={append}
             />
-          )}
+          }
         </form>
       </div>
 
