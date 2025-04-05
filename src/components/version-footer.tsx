@@ -57,9 +57,9 @@ export const VersionFooter = ({
             setIsMutating(true);
 
             mutate(
-              `/api/document?id=${artifact.documentId}`,
+              `/dashboard/api/document?id=${artifact.documentId}`,
               await fetch(
-                `/dashboard/dashboard/api/document?id=${artifact.documentId}`,
+                `/dashboard/api/document?id=${artifact.documentId}`,
                 {
                   method: "PATCH",
                   body: JSON.stringify({
